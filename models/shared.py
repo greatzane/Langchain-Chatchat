@@ -33,7 +33,7 @@ def loaderLLM(llm_model: str = None, no_remote_model: bool = False, use_ptuning_
 
     loaderCheckPoint.model_path = llm_model_info["local_model_path"]
 
-    if 'FastChatOpenAILLM' in llm_model_info["provides"]:
+    if 'FastChatOpenAILLM' in llm_model_info["provides"] or 'proxy_model' in llm_model_info:
         loaderCheckPoint.unload_model()
     else:
         loaderCheckPoint.reload_model()

@@ -230,11 +230,32 @@ llm_model_dict = {
         "api_base_url": "https://api.openai.com/v1",
         "api_key": ""
     },
+    "dummy": {
+        "name": "dummy",
+        "pretrained_model_name": "dummy", 
+        "provides": "DummyLLMChain",
+        "local_model_path": None, 
+        "proxy_model": True, 
+    },
+    "baichuan2proxy": {
+        "name": "baichuan2proxy",
+        "pretrained_model_name": "baichuan2proxy", 
+        "provides": "Baichuan2ProxyLLMChain",
+        "local_model_path": None, 
+        "proxy_model": True, 
+    },
+    "qwenproxy": {
+        "name": "qwenproxy",
+        "pretrained_model_name": "qwenproxy", 
+        "provides": "QwenProxyLLMChain",
+        "local_model_path": None, 
+        "proxy_model": True, 
+    },
 
 }
 
 # LLM 名称
-LLM_MODEL = "chatglm2-6b-32k"
+LLM_MODEL = "qwenproxy"
 # 量化加载8bit 模型
 LOAD_IN_8BIT = False
 # Load the model with bfloat16 precision. Requires NVIDIA Ampere GPU.
