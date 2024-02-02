@@ -32,6 +32,7 @@ HuggingFaceEmbeddings.__hash__ = _embeddings_hash
 # will keep CACHED_VS_NUM of vector store caches
 @lru_cache(CACHED_VS_NUM)
 def load_vector_store(vs_path, embeddings):
+    print("=====", vs_path)
     return MyFAISS.load_local(vs_path, embeddings)
 
 

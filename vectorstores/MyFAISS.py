@@ -18,6 +18,7 @@ class MyFAISS(FAISS, VectorStore):
             docstore: Docstore,
             index_to_docstore_id: Dict[int, str],
             normalize_L2: bool = False,
+            distance_strategy = None, 
     ):
         super().__init__(embedding_function=embedding_function,
                          index=index,
@@ -44,13 +45,14 @@ class MyFAISS(FAISS, VectorStore):
         return lists
 
     def similarity_search_with_score_by_vector(
-            self, embedding: List[float], k: int = 4
+            self, embedding: List[float], k: int = 4, filter = None, fetch_k = None
     ) -> List[Document]:
         faiss = dependable_faiss_import()
         vector = np.array([embedding], dtype=np.float32)
         if self._normalize_L2:
             faiss.normalize_L2(vector)
         scores, indices = self.index.search(vector, k)
+        print("scores", scores, "indices", indices)
         docs = []
         id_set = set()
         store_len = len(self.index_to_docstore_id)

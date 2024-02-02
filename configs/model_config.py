@@ -16,16 +16,18 @@ embedding_model_dict = {
     "ernie-tiny": "nghuyong/ernie-3.0-nano-zh",
     "ernie-base": "nghuyong/ernie-3.0-base-zh",
     "text2vec-base": "shibing624/text2vec-base-chinese",
-    "text2vec": "GanymedeNil/text2vec-large-chinese",
+    "text2vec": "../text2vec-large-chinese",
     "text2vec-base-multilingual": "shibing624/text2vec-base-multilingual",
     "text2vec-base-chinese-sentence": "shibing624/text2vec-base-chinese-sentence",
     "text2vec-base-chinese-paraphrase": "shibing624/text2vec-base-chinese-paraphrase",
     "m3e-small": "moka-ai/m3e-small",
     "m3e-base": "moka-ai/m3e-base",
+    "bge-large-zh-v1.5": "../bge-large-zh-v1.5",
 }
 
 # Embedding model name
-EMBEDDING_MODEL = "text2vec"
+EMBEDDING_MODEL = "bge-large-zh-v1.5"
+#EMBEDDING_MODEL = "text2vec"
 
 # Embedding running device
 EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
